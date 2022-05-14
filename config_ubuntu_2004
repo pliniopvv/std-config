@@ -6,7 +6,7 @@ sudo su
 apt-get update
 apt-get -y upgrade
 
-apt-get install gimp inkscape git -y
+apt-get install gimp inkscape git flatpak -y
 
 #		instalação de utilitários na loja Snap, versões estáveis.
 snap install slack --classic
@@ -17,11 +17,8 @@ snap install vscode --classic
 
 
 #		baixando e instalando
-#		microsoft edge -> site da MS (quebrado)
-#wget https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_101.0.1210.47-1_amd64.deb
-#dpkg -i microsoft-edge-stable_101.0.1210.47-1_amd64.deb
 
-#		microsoft edge -> https://sempreupdate.com.br/como-instalar-o-navegador-microsoft-edge-no-ubuntu/
+#		microsoft edge 				-> https://sempreupdate.com.br/como-instalar-o-navegador-microsoft-edge-no-ubuntu/
 curl https://packages.microsoft.com/keys/microsoft.asc > microsoft
 gpg –dearmor microsoft
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -29,20 +26,22 @@ echo deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main > /e
 sudo apt update && sudo apt install microsoft-edge-dev
 
 
-#		whatsapp -> https://tecnoblog.net/responde/como-instalar-o-whatsapp-desktop-em-linux-ubuntu/
-wget https://github.com/meetfranz/franz/releases/download/v5.4.0/franz_5.4.0_amd64.deb -O franz.deb
-dpkg -i franz.deb
-apt-get install -f
+#		whatsapp 					-> https://sempreupdate.com.br/como-instalar-o-whatsapp-for-linux-no-linux/#:~:text=WhatsApp%20for%20Linux%20%C3%A9%20um%20aplicativo%20de%20desktop,%C3%A9%20um%20cliente%20desktop%20do%20WhatsApp%20para%20Linux.
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo reboot
+flatpak install flathub com.github.eneshecan.WhatsAppForLinux
+flatpak run com.github.eneshecan.WhatsAppForLinux
 
-#		nvm (Node Version Manager) -> https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/
+#		nvm (Node Version Manager) 			-> https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
-#		sdkman
+#		sdkman 					-> https://sdkman.io/install
 curl -s "https://get.sdkman.io" | bash
 
-#		onlyoffice
+#		onlyoffice 					-> https://www.onlyoffice.com/pt/download-desktop.aspx?from=default
 wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.65486382.1438829286.1652551573-1847889931.1652551573 -O onlyoffice.deb
-sudo dpkg -i onlyoffice.deb
+dpkg -i onlyoffice.deb
+apt --fix-broken install -y
 
 #		
 
