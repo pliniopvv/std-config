@@ -63,12 +63,16 @@ wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_x11.6
 wget https://w7.pngwing.com/pngs/22/570/png-transparent-godot-game-engine-computer-software-github-free-and-open-source-software-engine-3d-computer-graphics-video-game-transport.png -o Godot.png
 mv Godot.png /opt/godot/Godot.png
 unzip godot.zip -d /opt/godot
-sudo echo -e "[Desktop Entry]\nName=Godot\nComment=IDE Godot\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/godot/Godot\nIcon=/opt/godot/godot.jpg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/Godot.desktop
+echo -e "[Desktop Entry]\nName=Godot\nComment=IDE Godot\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/godot/Godot\nIcon=/opt/godot/godot.jpg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/Godot.desktop
 
 
-
-
-
+# ===============================================================================================
+#		Spring Tool Suíte 4						-> https://spring.io/tools
+# ===============================================================================================
+wget https://download.springsource.com/release/STS4/4.14.1.RELEASE/dist/e4.23/spring-tool-suite-4-4.14.1.RELEASE-e4.23.0-linux.gtk.x86_64.tar.gz -O sts4.tar.gz
+tar -xvzf sts4.tar.gz
+mv sts-4.14.1.RELEASE /opt
+echo -e "[Desktop Entry]\nName=Spring Tool Suite4\nComment=IDE SpringToolSuite4\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/sts-4.14.1.RELEASE/SpringToolSuite4\nIcon=/opt/sts-4.14.1.RELEASE/icon.xpm\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/SpringToolSuite4.desktop
 
 
 
