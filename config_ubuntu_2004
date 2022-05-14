@@ -15,10 +15,15 @@ snap install blender --classic
 snap install telegram-desktop --classic
 snap install vscode --classic
 
+# ===============================================================================================
+#
+#		Configurações manuais
+#
+# ===============================================================================================
 
-#		baixando e instalando
-
+# ===============================================================================================
 #		microsoft edge 				-> https://sempreupdate.com.br/como-instalar-o-navegador-microsoft-edge-no-ubuntu/
+# ===============================================================================================
 curl https://packages.microsoft.com/keys/microsoft.asc > microsoft
 gpg –dearmor microsoft
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -26,25 +31,80 @@ echo deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main > /e
 sudo apt update && sudo apt install microsoft-edge-dev
 
 
+# ===============================================================================================
 #		whatsapp 					-> https://sempreupdate.com.br/como-instalar-o-whatsapp-for-linux-no-linux/#:~:text=WhatsApp%20for%20Linux%20%C3%A9%20um%20aplicativo%20de%20desktop,%C3%A9%20um%20cliente%20desktop%20do%20WhatsApp%20para%20Linux.
+# ===============================================================================================
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo reboot
 flatpak install flathub com.github.eneshecan.WhatsAppForLinux
 flatpak run com.github.eneshecan.WhatsAppForLinux
 
+# ===============================================================================================
 #		nvm (Node Version Manager) 			-> https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/
+# ===============================================================================================
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
+# ===============================================================================================
 #		sdkman 					-> https://sdkman.io/install
+# ===============================================================================================
 curl -s "https://get.sdkman.io" | bash
 
+# ===============================================================================================
 #		onlyoffice 					-> https://www.onlyoffice.com/pt/download-desktop.aspx?from=default
+# ===============================================================================================
 wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.65486382.1438829286.1652551573-1847889931.1652551573 -O onlyoffice.deb
 dpkg -i onlyoffice.deb
 apt --fix-broken install -y
 
-#		
+# ===============================================================================================
+#		godot						-> https://godotengine.org/download/linux
+# ===============================================================================================
+wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_x11.64.zip -O godot.zip
+wget https://w7.pngwing.com/pngs/22/570/png-transparent-godot-game-engine-computer-software-github-free-and-open-source-software-engine-3d-computer-graphics-video-game-transport.png -o Godot.png
+mv Godot.png /opt/godot/Godot.png
+unzip godot.zip -d /opt/godot
+sudo echo -e "[Desktop Entry]\nName=Godot\nComment=IDE Godot\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/godot/Godot\nIcon=/opt/godot/godot.jpg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/Godot.desktop
 
-- Whatsapp
-- Godot
-- OnlyOffice
+
+
+
+
+
+
+
+
+
+
+###################################
+###################################
+###################################
+###################################
+###################################
+###################################
+
+
+
+
+
+
+
+
+
+
+
+######################			conteúdo de um .desktop
+[Desktop Entry]
+Name=Godot
+Comment=IDE Godot
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=documentation;information;manual;help;
+OnlyShowIn=GNOME;Unity;
+Exec=/opt/godot/Godot
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=/opt/godot/godot.jpg
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Core;Documentation;Utility;
+MimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;
+X-Ubuntu-Gettext-Domain=yelp
