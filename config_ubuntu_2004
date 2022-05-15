@@ -77,6 +77,12 @@ echo -e "[Desktop Entry]\nName=Spring Tool Suite4\nComment=IDE SpringToolSuite4\
 
 
 
+# ===============================================================================================
+#		Figma								-> https://sempreupdate.com.br/como-instalar-o-figma-for-linux-no-ubuntu-fedora-debian-e-opensuse/#:~:text=Figma%20for%20Linux%20%C3%A9%20um%20clone%20do%20Figma,o%20Figma%20no%20Ubuntu%2C%20execute%20o%20comando%20abaixo.
+# ===============================================================================================
+flatpak install flathub io.github.Figma_Linux.figma_linux
+
+
 
 
 ###################################
