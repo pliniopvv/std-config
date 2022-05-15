@@ -9,11 +9,13 @@ apt-get -y upgrade
 apt-get install gimp inkscape git flatpak -y
 
 #		instalação de utilitários na loja Snap, versões estáveis.
-snap install slack --classic
-snap install discord --classic
-snap install blender --classic
-snap install telegram-desktop --classic
-snap install vscode --classic
+install_snaps() {
+	snap install slack --classic
+	snap install discord --classic
+	snap install blender --classic
+	snap install telegram-desktop --classic
+	snap install vscode --classic
+}
 
 # ===============================================================================================
 #
@@ -24,64 +26,78 @@ snap install vscode --classic
 # ===============================================================================================
 #		microsoft edge 				-> https://sempreupdate.com.br/como-instalar-o-navegador-microsoft-edge-no-ubuntu/
 # ===============================================================================================
-curl https://packages.microsoft.com/keys/microsoft.asc > microsoft
-gpg –dearmor microsoft
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-echo deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main > /etc/apt/sources.list.d/microsoft-edge-dev.list
-sudo apt update && sudo apt install microsoft-edge-dev
-
+install_edge() {
+	curl https://packages.microsoft.com/keys/microsoft.asc > microsoft
+	gpg –dearmor microsoft
+	sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+	echo deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main > /etc/apt/sources.list.d/microsoft-edge-dev.list
+	sudo apt update && sudo apt install microsoft-edge-dev
+}
 
 # ===============================================================================================
 #		whatsapp 					-> https://sempreupdate.com.br/como-instalar-o-whatsapp-for-linux-no-linux/#:~:text=WhatsApp%20for%20Linux%20%C3%A9%20um%20aplicativo%20de%20desktop,%C3%A9%20um%20cliente%20desktop%20do%20WhatsApp%20para%20Linux.
 # ===============================================================================================
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo reboot
-flatpak install flathub com.github.eneshecan.WhatsAppForLinux
-flatpak run com.github.eneshecan.WhatsAppForLinux
+install_whats_step1() {
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+#	sudo reboot
+install_whats_step2() {
+	flatpak install flathub com.github.eneshecan.WhatsAppForLinux
+#	flatpak run com.github.eneshecan.WhatsAppForLinux
+}
 
 # ===============================================================================================
 #		nvm (Node Version Manager) 			-> https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/
 # ===============================================================================================
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+install_nvm(){
+	wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+}
 
 # ===============================================================================================
 #		sdkman 					-> https://sdkman.io/install
 # ===============================================================================================
-curl -s "https://get.sdkman.io" | bash
+isntall_sdkman() {
+	curl -s "https://get.sdkman.io" | bash
+}
 
 # ===============================================================================================
 #		onlyoffice 					-> https://www.onlyoffice.com/pt/download-desktop.aspx?from=default
 # ===============================================================================================
-wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.65486382.1438829286.1652551573-1847889931.1652551573 -O onlyoffice.deb
-dpkg -i onlyoffice.deb
-apt --fix-broken install -y
+install_onlyoffice() {
+	wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.65486382.1438829286.1652551573-1847889931.1652551573 -O onlyoffice.deb
+	dpkg -i onlyoffice.deb
+	apt --fix-broken install -y
+}
 
 # ===============================================================================================
 #		godot						-> https://godotengine.org/download/linux
 # ===============================================================================================
-wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_x11.64.zip -O godot.zip
-wget https://w7.pngwing.com/pngs/22/570/png-transparent-godot-game-engine-computer-software-github-free-and-open-source-software-engine-3d-computer-graphics-video-game-transport.png -o Godot.png
-mv Godot.png /opt/godot/Godot.png
-unzip godot.zip -d /opt/godot
-echo -e "[Desktop Entry]\nName=Godot\nComment=IDE Godot\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/godot/Godot\nIcon=/opt/godot/godot.jpg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/Godot.desktop
-
+install_godot() {
+	wget https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_x11.64.zip -O godot.zip
+	wget https://w7.pngwing.com/pngs/22/570/png-transparent-godot-game-engine-computer-software-github-free-and-open-source-software-engine-3d-computer-graphics-video-game-transport.png -o Godot.png
+	mv Godot.png /opt/godot/Godot.png
+	unzip godot.zip -d /opt/godot
+	echo -e "[Desktop Entry]\nName=Godot\nComment=IDE Godot\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/godot/Godot\nIcon=/opt/godot/godot.jpg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/Godot.desktop
+}
 
 # ===============================================================================================
 #		Spring Tool Suíte 4						-> https://spring.io/tools
 # ===============================================================================================
-wget https://download.springsource.com/release/STS4/4.14.1.RELEASE/dist/e4.23/spring-tool-suite-4-4.14.1.RELEASE-e4.23.0-linux.gtk.x86_64.tar.gz -O sts4.tar.gz
-tar -xvzf sts4.tar.gz
-mv sts-4.14.1.RELEASE /opt
-echo -e "[Desktop Entry]\nName=Spring Tool Suite4\nComment=IDE SpringToolSuite4\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/sts-4.14.1.RELEASE/SpringToolSuite4\nIcon=/opt/sts-4.14.1.RELEASE/icon.xpm\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/SpringToolSuite4.desktop
-
+install_sts4() {
+	wget https://download.springsource.com/release/STS4/4.14.1.RELEASE/dist/e4.23/spring-tool-suite-4-4.14.1.RELEASE-e4.23.0-linux.gtk.x86_64.tar.gz -O sts4.tar.gz
+	tar -xvzf sts4.tar.gz
+	mv sts-4.14.1.RELEASE /opt
+	echo -e "[Desktop Entry]\nName=Spring Tool Suite4\nComment=IDE SpringToolSuite4\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/sts-4.14.1.RELEASE/SpringToolSuite4\nIcon=/opt/sts-4.14.1.RELEASE/icon.xpm\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/SpringToolSuite4.desktop
+}
 
 
 
 # ===============================================================================================
 #		Figma								-> https://sempreupdate.com.br/como-instalar-o-figma-for-linux-no-ubuntu-fedora-debian-e-opensuse/#:~:text=Figma%20for%20Linux%20%C3%A9%20um%20clone%20do%20Figma,o%20Figma%20no%20Ubuntu%2C%20execute%20o%20comando%20abaixo.
 # ===============================================================================================
-flatpak install flathub io.github.Figma_Linux.figma_linux
-
+install_figma() {
+	flatpak install flathub io.github.Figma_Linux.figma_linux
+}
 
 
 
