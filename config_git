@@ -1,4 +1,7 @@
 #=====================================================================================================
 #		Salva a senha permanentemente
 #=====================================================================================================
+# guardar a senha temporariamente
 git config --global credential.helper cache
+# guardar a senha permanentemente.
+git config --global credential.helper store
