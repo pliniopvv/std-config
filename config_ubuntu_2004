@@ -105,6 +105,17 @@ install_figma() {
 
 
 # ===============================================================================================
+#		Android Studio								-> https://sempreupdate.com.br/como-instalar-o-figma-for-linux-no-ubuntu-fedora-debian-e-opensuse/#:~:text=Figma%20for%20Linux%20%C3%A9%20um%20clone%20do%20Figma,o%20Figma%20no%20Ubuntu%2C%20execute%20o%20comando%20abaixo.https://r4---sn-bg07dnsl.gvt1.com/edgedl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz?mh=ml&pl=52&shardbypass=sd&redirect_counter=1&cm2rm=sn-8p8v-0qpe7l&req_id=f0a8a393e45c334f&cms_redirect=yes&mip=2804:1b3:3107:1b71:8cae:b56c:6eae:97fc&mm=42&mn=sn-bg07dnsl&ms=onc&mt=1653005455&mv=u&mvi=4&rmhost=r5---sn-bg07dnsl.gvt1.com&smhost=r1---sn-bg07dnr7.gvt1.com
+# ===============================================================================================
+install_androidStudio() {
+	wget 'https://r4---sn-bg07dnsl.gvt1.com/edgedl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz?mh=ml&pl=52&shardbypass=sd&redirect_counter=1&cm2rm=sn-8p8v-0qpe7l&req_id=f0a8a393e45c334f&cms_redirect=yes&mip=2804:1b3:3107:1b71:8cae:b56c:6eae:97fc&mm=42&mn=sn-bg07dnsl&ms=onc&mt=1653005455&mv=u&mvi=4&rmhost=r5---sn-bg07dnsl.gvt1.com&smhost=r1---sn-bg07dnr7.gvt1.com' -O android-studio.tar.bz2
+	tar -xf android-studio.tar.bz2
+	echo -e "[Desktop Entry]\nName=android-studio\nComment=IDE android-studio\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/android-studio/bin/studio.sh\nIcon=/opt/android-studio/bin/studio.svg\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/android-studio.desktop
+}
+
+
+
+# ===============================================================================================
 #		FileZilla    (Zuado)							
 # ===============================================================================================
 wget https://dl4.cdn.filezilla-project.org/client/FileZilla_3.59.0_x86_64-linux-gnu.tar.bz2?h=IwfDKBKt1Pb7paLD0l0PMA&x=1653004637 -O filezilla.tar.bz
