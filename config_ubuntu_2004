@@ -6,7 +6,10 @@ sudo su
 apt-get update
 apt-get -y upgrade
 
-apt-get install gimp inkscape git flatpak -y
+# ===============================================================================================
+#		instalações do repositório
+# ===============================================================================================
+apt-get install gimp inkscape git flatpak putty -y
 
 #		instalação de utilitários na loja Snap, versões estáveis.
 install_snaps() {
@@ -99,6 +102,13 @@ install_sts4() {
 install_figma() {
 	flatpak install flathub io.github.Figma_Linux.figma_linux
 }
+
+
+# ===============================================================================================
+#		FileZilla    (Zuado)							
+# ===============================================================================================
+wget https://dl4.cdn.filezilla-project.org/client/FileZilla_3.59.0_x86_64-linux-gnu.tar.bz2?h=IwfDKBKt1Pb7paLD0l0PMA&x=1653004637 -O filezilla.tar.bz
+
 
 
 
