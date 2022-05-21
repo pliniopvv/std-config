@@ -7,10 +7,19 @@ apt-get update
 apt-get -y upgrade
 
 # ===============================================================================================
-#		instalações do repositório
+#		instalações apt-get
 # ===============================================================================================
-apt-get install gimp inkscape git flatpak putty -y
+install_by_aptget() {
+	apt-get install gimp inkscape git flatpak putty kdenlive -y
+}
 
+install_repositorys() {
+	add-apt-repository ppa:kdenlive/kdenlive-stable
+	apt-get update
+}
+# ===============================================================================================
+#		Snap
+# ===============================================================================================
 #		instalação de utilitários na loja Snap, versões estáveis.
 install_snaps() {
 	snap install slack --classic
