@@ -127,8 +127,13 @@ install_androidStudio() {
 # ===============================================================================================
 #		FileZilla    (Zuado)							
 # ===============================================================================================
-wget https://dl4.cdn.filezilla-project.org/client/FileZilla_3.59.0_x86_64-linux-gnu.tar.bz2?h=IwfDKBKt1Pb7paLD0l0PMA&x=1653004637 -O filezilla.tar.bz
-
+install_FileZilla() {
+	wget https://dl4.cdn.filezilla-project.org/client/FileZilla_3.59.0_x86_64-linux-gnu.tar.bz2?h=IwfDKBKt1Pb7paLD0l0PMA&x=1653004637 -O filezilla.tar.bz
+	wget https://www.philix.be/multisite/wp-content/uploads/sites/15/2019/03/FileZilla_logo.svg_.png -O filezilla.png
+	mv FileZilla3 /opt
+	mv filezilla.png /opt/FileZilla3/filezilla.png
+	echo -e "[Desktop Entry]\nName=FileZilla3\nComment=FileZilla3\nKeywords=documentation;information;manual;help;\nOnlyShowIn=GNOME;Unity;\nExec=/opt/FileZilla3/bin/filezilla\nIcon=/opt/FileZilla3/filezilla.png\nStartupNotify=true\nTerminal=false\nType=Application\nCategories=GNOME;GTK;Core;Documentation;Utility;\nMimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;\nX-Ubuntu-Gettext-Domain=yelp" > /usr/share/applications/FileZilla3.desktop
+}
 
 
 
