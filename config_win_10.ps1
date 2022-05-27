@@ -7,3 +7,4 @@ choco install androidstudio -y
 choco install slack -y
 choco install inkscape --version 1.2 -y
 choco install gimp --version 2.10.30 -y
+choco install godot -y
