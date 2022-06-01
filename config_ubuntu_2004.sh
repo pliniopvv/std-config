@@ -136,6 +136,16 @@ install_FileZilla() {
 }
 
 
+# ===============================================================================================
+#		OBS Studio 							-> https://obsproject.com/download#linux							
+# ===============================================================================================
+install_obs() {
+	add-apt-repository ppa:obsproject/obs-studio
+	apt update
+	apt install ffmpeg obs-studio
+}
+
+
 
 ###################################
 ###################################
